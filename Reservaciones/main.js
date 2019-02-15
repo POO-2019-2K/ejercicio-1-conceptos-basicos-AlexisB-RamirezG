@@ -7,11 +7,11 @@ let r1 = new Reservation("Juan Perez", "Doble", d1, d2, currentDate);
 
 r1.printf();
 
-console.log(r1.name);
-
 r1.roomType = "Individual";
 
 console.log(r1.roomType);
+
+console.log(r1.name);
 
 r1.getNights();
 
