@@ -11,12 +11,24 @@ export default class Reservation {
         console.log(`${this._name}, ${this._roomType}, ${this._arrDate}, ${this._depDate}`);
     }
 
+    get name() {
+        return this._name;
+    }
+
+    get roomType() {
+        return this._roomType;
+    }
+
+    set roomType(roomType) {
+        this._roomType = roomType.toUpperCase();
+    }
+
     getNights() {
         let aDay = 1000*60*60*24;
         let arrDateTime = this._arrDate.getTime();
-        this._depDate = this._depDate.getTime();
-        let difference = ((this._depDate) - (arrDateTime));
-        let nights = (difference)/(aDay);
+        let depDateTime = this._depDate.getTime();
+        let difference = ((depDateTime) - (arrDateTime));
+        let nights = Math.round((difference)/(aDay));
         console.log(`The number of nights the guest is going to stay is ${nights}`);
     }
 
@@ -25,7 +37,7 @@ export default class Reservation {
         let arrDateTime = this._arrDate.getTime();
         let currentDateTime = this._currentDate.getTime();
         let difference = ((arrDateTime) - (currentDateTime));
-        let nights = (difference)/(aDay);
-        console.log(`The number of nights the guest is going to stay is ${nights}`);
+        let nights = Math.round((difference)/(aDay));
+        console.log(`The number of nights for the arrival date is ${nights}`);
     }
 }
